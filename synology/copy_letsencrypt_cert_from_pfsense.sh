@@ -23,4 +23,4 @@ done
 [ -z "${PFSENSE_HOSTNAME}" ] && echo "Set pfSense hostname through -h (e.g. -h mypfsense" && exit 1
 
 # Copy certificates from pfSense into Synology's share
-scp -v  -P ${PFSENSE_PORT} ${PFSENSE_USER}@${PFSENSE_HOSTNAME}:/conf/acme/${CERTIFICATE_NAME}* ${LETSENCRYPT_SHARE}/
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -v  -P ${PFSENSE_PORT} ${PFSENSE_USER}@${PFSENSE_HOSTNAME}:/conf/acme/${CERTIFICATE_NAME}* ${LETSENCRYPT_SHARE}/
